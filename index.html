@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Little Shadow</title>
+
+    <!-- Recommended meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <!-- PyScript CSS -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <!-- Additional Stylesheet -->
+    <link rel="stylesheet" href="./styles.css">
+
+    <!-- This script tag bootstraps PyScript -->
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+</head>
+<body>
+    <script type="py" src="./main.py" config="./pyscript.toml" terminal></script>
+    <script type="module">
+            const loading = document.getElementById('loading');
+            addEventListener('py:ready', () => loading.close());
+            loading.showModal();
+    </script>
+
+
+    <section class="memory-game">
+
+      <h1 class="title" style="color: #f0ab3c">Memory - Pyscript</h1>
+
+      <div id="01" class="memory-card" py-click="flip_card" data-framework="react">
+          <img class="front-face" src="img/react.svg" alt="React">
+          <img id="js-badge" class="back-face" src="img/js-badge.svg" alt="Memory Card">
+      </div>
+
+      <div id="02" class="memory-card" py-click="flip_card" data-framework="react">
+          <img class="front-face" src="img/react.svg" alt="React">
+          <img class="back-face" src="img/js-badge.svg" alt="Memory Card">
+      </div>
+
+      <div id="03" class="memory-card" py-click="flip_card" data-framework="angular">
+        <img class="front-face" src="img/angular.svg" alt="Angular">
+        <img class="back-face" src="img/js-badge.svg" alt="Memory Card">
+      </div>
+
+      <div id="04" class="memory-card" py-click="flip_card" data-framework="angular">
+        <img class="front-face" src="img/angular.svg" alt="Angular">
+        <img class="back-face" src="img/js-badge.svg" alt="Memory Card">
+      </div>
+
+      <div id="05" class="memory-card" py-click="flip_card" data-framework="ember">
+        <img class="front-face" src="img/ember.svg" alt="Ember">
+        <img class="back-face" src="img/js-badge.svg" alt="Memory Card">
+      </div>
+
+      <div id="06" class="memory-card" py-click="flip_card" data-framework="ember">
+        <img class="front-face" src="img/ember.svg" alt="Ember">
+        <img class="back-face" src="img/js-badge.svg" alt="Memory Card">
+      </div>
+
+      <div id="07" class="memory-card" py-click="flip_card" data-framework="vue">
+        <img class="front-face" src="img/vue.svg" alt="Vue">
+        <img class="back-face" src="img/js-badge.svg" alt="Memory Card">
+      </div>
+
+      <div id="08" class="memory-card" py-click="flip_card" data-framework="vue">
+        <img class="front-face" src="img/vue.svg" alt="Vue">
+        <img class="back-face" src="img/js-badge.svg" alt="Memory Card">
+      </div>
+
+      <div id="09" class="memory-card" py-click="flip_card" data-framework="backbone">
+        <img class="front-face" src="img/backbone.svg" alt="Backbone">
+        <img class="back-face" src="img/js-badge.svg" alt="Memory Card">
+      </div>
+
+      <div id="10" class="memory-card" py-click="flip_card" data-framework="backbone">
+        <img class="front-face" src="img/backbone.svg" alt="Backbone">
+        <img class="back-face" src="img/js-badge.svg" alt="Memory Card">
+      </div>
+
+      <div id="11" class="memory-card" py-click="flip_card" data-framework="aurelia">
+        <img class="front-face" src="img/aurelia.svg" alt="Aurelia">
+        <img class="back-face" src="img/js-badge.svg" alt="Memory Card">
+      </div>
+
+      <div id="12" class="memory-card" py-click="flip_card" data-framework="aurelia">
+        <img class="front-face" src="img/aurelia.svg" alt="Aurelia">
+        <img class="back-face" src="img/js-badge.svg" alt="Memory Card">
+      </div>
+    </section>
+
+</body>
+</html>
