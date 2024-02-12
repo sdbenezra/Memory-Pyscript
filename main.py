@@ -1,4 +1,6 @@
 from js import document
+from random import random
+from math import floor
 
 has_flipped_card = False
 has_both_flipped_cards = False
@@ -83,10 +85,20 @@ def unflip_cards():
 
 
 def reset_board():
-    global has_flipped_card, has_both_flipped_cards, first_card, first_card_id, second_card, second_card_id
+    global has_flipped_card, has_both_flipped_cards, lockboard, first_card, first_card_id, second_card, second_card_id
+    lockboard = False
     has_flipped_card = False
     has_both_flipped_cards = False
     first_card = None
     first_card_id = None
     second_card = None
     second_card_id = None
+
+def shuffle():
+    cards = document.querySelectorAll('.memory-card')
+    for card in cards:
+        randomPos = floor(random() * 12)
+        card.style.order = randomPos
+
+
+shuffle()
