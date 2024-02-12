@@ -9,6 +9,8 @@ first_card = None
 first_card_id = None
 second_card = None
 second_card_id = None
+current_score = 0
+best_score = 0
 
 
 def flip_card(event):
@@ -51,14 +53,17 @@ def check_for_match():
     global has_both_flipped_cards
     global first_card, first_card_id
     global second_card, second_card_id
+    global current_score
 
     print("CHECK_FOR_MATCH")
     if first_card == second_card and first_card_id != second_card_id:
         print("It's a match!")
+        update_score()
         disable_cards()
         reset_board()
     else:
         print("Not a match")
+        update_score()
 
 
 def disable_cards():
@@ -94,6 +99,7 @@ def reset_board():
     second_card = None
     second_card_id = None
 
+
 def shuffle():
     cards = document.querySelectorAll('.memory-card')
     for card in cards:
@@ -101,4 +107,17 @@ def shuffle():
         card.style.order = randomPos
 
 
+def score_setup():
+    global current_score, best_score
+    document.getElementById("current-score").innerHTML = current_score
+    document.getElementById("best-score").innerHTML = best_score
+
+
+def update_score():
+    global current_score
+    current_score += 1
+    document.getElementById("current-score").innerHTML = current_score
+
+
 shuffle()
+score_setup()
