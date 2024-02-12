@@ -1,6 +1,7 @@
 from js import document
 
 has_flipped_card = False
+has_both_flipped_cards = False
 lockboard = False
 first_card = None
 first_card_id = None
@@ -9,34 +10,29 @@ second_card_id = None
 
 
 def flip_card(event):
-    global has_flipped_card, lockboard
+    global has_flipped_card, has_both_flipped_cards, lockboard
     global first_card, first_card_id
     global second_card, second_card_id
-
     print("FLIP_CARD")
+    if has_both_flipped_cards:
+        unflip_cards()
     if lockboard:
         return
     card = event.currentTarget
     card.classList.add('flip')
-    print(f'Classlist: {card.classList}')
-    print(f'Data-framework: {card.dataset.framework}')
-    print(f'Id: {card.id}')
     evaluate(event)
 
 
 def evaluate(event):
-    global has_flipped_card
+    global has_flipped_card, has_both_flipped_cards
     global first_card, first_card_id
     global second_card, second_card_id
 
     print("EVALUATE")
     if not has_flipped_card:
-        print(f'Flip card starting value for has_flipped_card: {has_flipped_card}')
         has_flipped_card = True
         first_card = event.currentTarget.dataset.framework
         first_card_id = event.currentTarget.id
-        print(f'After has_flipped_card has been changed: {has_flipped_card}')
-        print(f'First card: {first_card} - {first_card_id}')
     else:
         second_card_id = event.currentTarget.id
         if first_card_id == second_card_id:
@@ -45,13 +41,12 @@ def evaluate(event):
         else:
             second_card = event.currentTarget.dataset.framework
             second_card_id = event.currentTarget.id
-            has_flipped_card = False
-            print(f'first card type: {first_card}')
-            print(f'second card type: {second_card}')
+            has_both_flipped_cards = True
             check_for_match()
 
 
 def check_for_match():
+    global has_both_flipped_cards
     global first_card, first_card_id
     global second_card, second_card_id
 
@@ -59,9 +54,9 @@ def check_for_match():
     if first_card == second_card and first_card_id != second_card_id:
         print("It's a match!")
         disable_cards()
+        reset_board()
     else:
         print("Not a match")
-        unflip_cards()
 
 
 def disable_cards():
@@ -75,16 +70,22 @@ def disable_cards():
 
 
 def unflip_cards():
-    global lockboard
+    global has_flipped_card, has_both_flipped_cards, lockboard
     global first_card, first_card_id
     global second_card, second_card_id
-    print("SECOND CLASSLIST ######")
-    print(document.getElementById(f"{second_card_id}").classList)
+
     print("UNFLIP")
     lockboard = True
     document.getElementById(f"{first_card_id}").classList.remove('flip')
     document.getElementById(f"{second_card_id}").classList.remove('flip')
     lockboard = False
+    reset_board()
+
+
+def reset_board():
+    global has_flipped_card, has_both_flipped_cards, first_card, first_card_id, second_card, second_card_id
+    has_flipped_card = False
+    has_both_flipped_cards = False
     first_card = None
     first_card_id = None
     second_card = None
