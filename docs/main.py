@@ -1,4 +1,6 @@
 from js import document
+from js import location
+from js import localStorage
 from random import random
 from math import floor
 
@@ -9,7 +11,9 @@ first_card = None
 first_card_id = None
 second_card = None
 second_card_id = None
+matches = 0
 current_score = 0
+best_score = 0
 
 
 def flip_card(event):
@@ -52,12 +56,19 @@ def check_for_match():
     global has_both_flipped_cards
     global first_card, first_card_id
     global second_card, second_card_id
-    global current_score
+    global current_score, best_score, matches
 
     print("CHECK_FOR_MATCH")
     if first_card == second_card and first_card_id != second_card_id:
         print("It's a match!")
         update_score()
+        matches += 1
+        print(f'MATCHES:   {matches}')
+        if matches == 6:
+            print("you won")
+            if best_score > current_score or best_score == 0:
+                best_score = current_score
+                update_best_score()
         disable_cards()
         reset_board()
     else:
@@ -107,14 +118,31 @@ def shuffle():
 
 
 def score_setup():
-    global current_score
+    global current_score, best_score
     document.getElementById("current-score").innerHTML = current_score
+    print(localStorage.getItem("best-score"))
+    best_score = int(localStorage.getItem("best-score"))
+    if best_score is None:
+        best_score = 0
+        document.getElementById("best-score").innerHTML = 0
+    else:
+        document.getElementById("best-score").innerHTML = best_score
 
 
 def update_score():
     global current_score
     current_score += 1
     document.getElementById("current-score").innerHTML = current_score
+
+
+def update_best_score():
+    global best_score
+    document.getElementById("best-score").innerHTML = best_score
+    localStorage.setItem("best-score", f"{best_score}");
+
+
+def reset(event):
+    location.reload()
 
 
 shuffle()
