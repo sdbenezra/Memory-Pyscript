@@ -121,11 +121,12 @@ def score_setup():
     global current_score, best_score
     document.getElementById("current-score").innerHTML = current_score
     print(localStorage.getItem("best-score"))
-    best_score = int(localStorage.getItem("best-score"))
-    if best_score is None:
+    best_score_retrieved = localStorage.getItem("best-score")
+    if best_score_retrieved is None:
         best_score = 0
         document.getElementById("best-score").innerHTML = 0
     else:
+        best_score = int(best_score_retrieved)
         document.getElementById("best-score").innerHTML = best_score
 
 
@@ -138,7 +139,7 @@ def update_score():
 def update_best_score():
     global best_score
     document.getElementById("best-score").innerHTML = best_score
-    localStorage.setItem("best-score", f"{best_score}");
+    localStorage.setItem("best-score", f"{best_score}")
 
 
 def reset(event):
