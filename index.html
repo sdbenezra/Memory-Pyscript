@@ -17,7 +17,7 @@
 </head>
 <body>
 <!-- Next line displays a terminal to check for print statements in development -->
-<!--    <script type="py" src="./main.py" config="./pyscript.toml" terminal></script>-->
+<!--    <script type="py" src="./main.py" config="./pyscript.json" terminal></script>-->
     <script type="py" src="./main.py" config="./pyscript.json"></script>
     <script type="module">
             const loading = document.getElementById('loading');
@@ -92,6 +92,8 @@
         </section>
         <section class="footer">
             <h1>Score: <span id="current-score"></span></h1>
+            <h1>Best Score: <span id="best-score"></span></h1>
+            <button class="button" role="button" py-click="reset">Reset</button>
         </section>
     </section>
 </body>

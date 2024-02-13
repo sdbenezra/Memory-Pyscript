@@ -69,6 +69,7 @@ body {
     perspective: 1000px;
     color: #f0ab3c;
     padding: 10px;
+    color: yellow;
 }
 
 .frame {
@@ -79,3 +80,35 @@ body {
     flex-wrap: wrap;
     perspective: 1000px;
 }
+
+
+.button {
+  background-color: #EA4C89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: flex;
+  height: 40px;
+  width: 80px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #F082AC;
+}
+
