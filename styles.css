@@ -65,7 +65,7 @@ body {
     margin: 10px;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     perspective: 1000px;
     color: #f0ab3c;
     padding: 10px;
@@ -90,13 +90,13 @@ body {
   color: #FFFFFF;
   cursor: pointer;
   display: flex;
-  height: 40px;
+  height: 60px;
   width: 80px;
   line-height: 20px;
   list-style: none;
-  margin: 0;
+  margin: 10px;
   outline: none;
-  padding: 10px 16px;
+  padding: 5px 5px;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -110,5 +110,9 @@ body {
 .button:hover,
 .button:focus {
   background-color: #F082AC;
+}
+
+.score {
+  margin: 20px;
 }
 

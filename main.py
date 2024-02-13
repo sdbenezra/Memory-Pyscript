@@ -142,8 +142,18 @@ def update_best_score():
     localStorage.setItem("best-score", f"{best_score}")
 
 
+def clear_best_score(event):
+    global best_score
+    localStorage.removeItem("best-score")
+    best_score = 0
+    document.getElementById("best-score").innerHTML = 0
+
+
 def reset(event):
     location.reload()
+
+
+
 
 
 shuffle()
