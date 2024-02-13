@@ -1,5 +1,7 @@
 # A Memory Game in Pyscript
 
+See the game online at **https://sdbenezra.github.io/Memory-Pyscript/**
+
 As part of my investigation of various languages and frameworks I've build a memory game with [Pyscript](https://pyscript.net/).
 
 
