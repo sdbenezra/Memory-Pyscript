@@ -67,8 +67,6 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
     perspective: 1000px;
-    color: #f0ab3c;
-    padding: 10px;
 }
 
 .frame {
