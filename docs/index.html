@@ -91,9 +91,11 @@
           </div>
         </section>
         <section class="footer">
-            <h1>Score: <span id="current-score"></span></h1>
-            <h1>Best Score: <span id="best-score"></span></h1>
-            <button class="button" role="button" py-click="reset">Reset</button>
+            <h1 class="score">Score: <span id="current-score"></span></h1>
+            <h1 class="score">Best Score: <span id="best-score"></span></h1>
+            <button class="button" role="button" py-click="reset" style="background: green;">Reset Game</button>
+
+            <button class="button" role="button" py-click="clear_best_score">Reset Best Score</button>
         </section>
     </section>
 </body>
