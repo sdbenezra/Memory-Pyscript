@@ -28,8 +28,13 @@
     <section class="frame">
         <section class="memory-game">
 
-          <h1 class="title" style="color: #f0ab3c">Memory - Pyscript</h1>
+            <modal id="win-banner" class="win-modal" py-click="close_win_banner">
+                <form method="dialog" class="win-modal">
+                        <button class="win-modal">OK</button>
+                </form>
+            </modal>
 
+          <h1 class="title" style="color: #f0ab3c">Memory - Pyscript</h1>
           <div id="01" class="memory-card" py-click="flip_card" data-framework="react">
               <img class="front-face" src="img/react.svg" alt="React">
               <img id="js-badge" class="back-face" src="img/js-badge.svg" alt="Memory Card">
@@ -91,6 +96,14 @@
           </div>
         </section>
         <section class="footer">
+            <div class="modal">
+                <dialog id="modal-dialog" class="modal" open>
+                    <p class="modal-content">Setting up game, press ok when ready</p>
+                    <form method="dialog">
+                        <button class="modal-content">OK</button>
+                    </form>
+                </dialog>
+            </div>
             <h1 class="score">Score: <span id="current-score"></span></h1>
             <h1 class="score">Best Score: <span id="best-score"></span></h1>
             <button class="button" role="button" py-click="reset" style="background: green;">Reset Game</button>

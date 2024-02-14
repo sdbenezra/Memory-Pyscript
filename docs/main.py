@@ -69,6 +69,9 @@ def check_for_match():
             if best_score > current_score or best_score == 0:
                 best_score = current_score
                 update_best_score()
+            document.getElementById("win-banner").innerHTML = f"You Won in {current_score} moves!"
+            document.getElementById("win-banner").id = "win-banner-open"
+            document.getElementById("win-banner-open").classList.add("win-modal")
         disable_cards()
         reset_board()
     else:
@@ -149,12 +152,12 @@ def clear_best_score(event):
     document.getElementById("best-score").innerHTML = 0
 
 
+def close_win_banner(event):
+    document.getElementById("win-banner-open").id = "win-banner"
+
+
 def reset(event):
     location.reload()
-
-
-
-
 
 shuffle()
 score_setup()
