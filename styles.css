@@ -13,12 +13,14 @@ body {
 .title {
     width: 100vw;
     display: flex;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 .memory-game {
-  width: 50vw;
-  height: 50vh;
-  margin: 2em;
+  width: 80vw;
+  height: 80vh;
+  margin: 1em;
   display: flex;
   flex-wrap: wrap;
   perspective: 1000px;
@@ -26,7 +28,7 @@ body {
 
 .memory-card {
   width: calc(25% - 10px);
-  height: calc(33.333% - 10px);
+  height: calc(33.333% - 50px);
   margin: 5px;
   position: relative;
   box-shadow: 1px 1px 1px rgba(0,0,0,.3);
@@ -73,12 +75,11 @@ body {
 }
 
 .frame {
-    width: 60vw;
+    width: 80vw;
     height: 80vh;
-    margin: auto;
+    margin: 1em;
     display: flex;
     flex-wrap: wrap;
-    perspective: 1000px;
 }
 
 
